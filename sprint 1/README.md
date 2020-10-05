@@ -10,4 +10,4 @@ We divide sprint one to mainly five topics, they are:
 
 
 
-These topics are elaborated in the file **Sprint_1.md**.
+These topics are elaborated in the file **sprint_1.md**.

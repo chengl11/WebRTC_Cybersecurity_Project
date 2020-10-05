@@ -58,11 +58,8 @@ Another "product" we analyze is the Chrome built-in function, chrome://webrtc-in
 
 ### i. User Story
 
-1. Developer: With this extension, they don’t need to open another website (for chrome: chrome://webrtc-internals) to detect WebRTC.
-
-2. People who care about privacy: With this extension, they can know if some website is trying to get their privacy.
-
-3. User of website that use WebRTC, with this extension, they can know why their upload traffic is heavy when watching live soccer games.
+1. As a developer who knows WebRTC, I want to know if some websites, especially websites that not necessarily need to run WebRTC, like NYT and CSDN we mentioned above, is running WebRTC services, and I prefer ways that are more convenient than opening chrome://webrtc-internals. 
+2. As a user who cares about privacy, I hope my IP address will not be leaked, and I don't want my behavior on the Internet being tracked by advertisement platforms. I want to know if some website is running WebRTC, so I can take a further step, to block WebRTC (it will be ideal if I can block WebRTC for this website only), or stop browsing this website.
 
 ### ii. MVP
 
@@ -72,26 +69,36 @@ After prioritizing the user stories, the Minimum Valuable Product is a Chrome ex
 
 ## IV. Technology and Why we choose them
 
+Both of us have no experience in developing Chrome extension, so we searched on the Internet about what technology can be used for Chrome extension development. We read the document provided by Google, and learn about the necessary technologies for extension development, and then we searched in the GitHub to find useful tools.
+
 ### i. HTML, CSS and JavaScript
 
+Chrome extensions, similar to web development, are developed with HEML, CSS and JavaScript. Each Chrome extensions can be devided to functional pieces and some web pages. 
 
+A Chrome extension usually includes a JSON file `manifest.json`, two web pages, `options` page, and `popup` page.
+
+- `manifest.json` is like index for web application, it nominates basic descriptions of this extension, and it also tells browser what functions it implements and which JavaScript file works for each functions.
+
+- `options` page allows users to customise their extension. Take WebRTC Network Limiter as an example, in the `options` page, it allow users to decide which IP handling policy they want. 
+
+- `popup` page is the special window which appears when users click the extension icon
 
 ### ii. Webpack and React
 
+Webpack and React are front-end development tools that can make the development much more easier and efficient.
 
+Webpack is a module bundler. It allows developers to write their application in a modular programming way. Webpack will transform thes module to static assets, which can run in browsers.
 
-### iii. Chrome API
-
-
+With React, we can write separate components with props to form a complex application, and we can also create interactive UI more easily.^[5]^
 
 ## V. Setup of Development Environment
 
-
+We followed the instructions of A GitHub repository, Chrome Extension Webpack Boilerplate, and finished the setup of environment. Fig. 1 shows that the demo extension functions well.
 
 <div align="center">
 	<img src="demo.gif" alt="demo"/>
   <div>
-    Fig. 
+    Fig. 1 demo
   </div>
 </div>
 
@@ -101,6 +108,10 @@ After prioritizing the user stories, the Minimum Valuable Product is a Chrome ex
 
 [2] incloud, "WebRTC being used now by embedded 3rd party on http://nytimes.com  to report visitors' local IP addresses", *Twitter*, July 2015, https://twitter.com/incloud/status/619624021123010560 (Accessed: 21 September 2020)
 
-[3] 
+[3] WebRTC Network Limiter, https://chrome.google.com/webstore/detail/webrtc-network-limiter/npeicpdbkakmehahjeeohfdhnlpdklia
 
 [4] WebRTC Control, https://chrome.google.com/webstore/detail/webrtc-control/fjkmabmdepjfammlpliljpnbhleegehm
+
+[5] React, https://reactjs.org/
+
+[6] Chrome Extension Webpack Boilerplate, https://github.com/samuelsimoes/chrome-extension-webpack-boilerplate
