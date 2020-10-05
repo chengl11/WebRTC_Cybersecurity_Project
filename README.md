@@ -1,4 +1,4 @@
-# WebRTC_Cybersicurity_Project
+# WebRTC_Cybersecurity_Project
 
 
 ### Sprint 1 Expectations:
