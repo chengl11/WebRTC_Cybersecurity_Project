@@ -1,16 +1,16 @@
-# WebRTC Cybersecurity Project Sprint 02
+# WebRTC & Cybersecurity Project Sprint 02
 **Author Name:** Lin Cheng, Wenqiang Yang
 **Due Date:** 10/19/2020
 **Project Name:** WebRTC & Cybersecurity Project Sprint 02
 
-## Description
+## 1. Description
 This is a description for EC601 WebRTC Cybersecurity Project Sprint 02. The expectation of this sprint is to:
 1. Definition of architecture
 2. Functional demonstration of major user story
 3. Technology Selection and justification
 
 
-## Definition of Architecture
+## 2. Architecture
 
 ![Image of architecture](https://github.com/chengl11/WebRTC_Cybersecurity_Project/blob/master/sprint2/images/Architecture.png)
 
@@ -18,33 +18,33 @@ The basic structure of our product can be divided into four parts: the user beha
 
 For the code part, our current idea is to divide it into four components: the listening component, the analysis component, the interaction component and the interface component(or UI component).
 
-##### <u>User Behavior Part</u>
+### 2.1 User Behavior Part
 First the user needs to install and turn on our "WebRTC Notifier" plug-in. 
 Then, when the user opens a website, the listening part of our code begins to execute. It will collect the URLs of all the opening sites and save them in a list.
 
-#### Code Part
+### 2.2 Code Part
 The analysis part will create the connection between Google's built-in WebRTC website and our project. It sends the list of saved sites to the Google built-in website and analyzes the results. This section will then return all results if Google's built-in monitoring system detects that the current URL wants to use WebRTC. 
 
 
-#### The Google built-in WebRTC Detection web page Part
+### 2.3 The Google built-in WebRTC Detection web page Part
 The interactive section takes the results collecting from the Google built-in site and passes them to our Google extension application. Our application will pop up a window telling the user that the current site wants to use your WebRTC. Users can then choose to continue browsing the site or exit. 
 
 
-#### Interface Part
+### 2.4 Interface Part
 The interface part(or UI part) is the design part of the entire plug-in interface.
 
 
-## Functional demonstration of major user story
+## 3. Functional Demonstration of Major User Story
 
 ![Image of architecture](https://github.com/chengl11/WebRTC_Cybersecurity_Project/blob/master/sprint2/images/User-story.png)
 
 A very simple user story might happen when using Google Hangouts. When the user wants to use the voice or video calls with others in the Google Hangouts, our product will first send the URL to Google's built-in detection WebRTC website, if the Google's built-in monitoring system detects that the current url is using WebRTC, all the results from the monitoring system will be collected and passed to our application, then the user will see a popup window that shows “The current website will use your WebRTC data.” At the end, the user can choose to continue the video chat or exit the current site.
 
-## Technology Selection
+## 4. Technology Selection
 
 The crucial part of our project is the analysis part, that is, to analyze if some web page is running WebRTC service. From another perspective, if we know the difference between a "normal" website from a website running with WebRTC, we can know if some website is running WebRTC. Also, we can learn from current tools, such as chrome://webrtc-internals and [WebRTC Leak Prevent](https://github.com/aghorler/WebRTC-Leak-Prevent). Based on these inspirations, we came up with some possible solutions. 
 
-#### Embed JavaScript Code
+### 4.1 Embed JavaScript Code
 
 Comparing with "normal" website, website running WebRTC service include script using WebRTC API.
 
@@ -59,17 +59,17 @@ After some research, we realized that simply eembedding some content scripts wil
 2. If the WebRTC-related instances and methods are not global, and only functions in a certain scope, our embeded code cannot interact with them.
 3. If the website JavaScript code is obfuscated, it will be really hard to parse the code and analyze it.
 
-#### Monitor Network Behavior
+### 4.2 Monitor Network Behavior
 
 Another big difference between website running WebRTC and other websites is network behavior. WebRTC technology create direct peer-to-peer connection for clients using UDP by default. In the signaling, it might also behave differently. It sends session description information to remote server and also communicate with ICE servers (STUN and TURN servers).
 
 Like the previous part, the peer-to-peer connection is not necessarily established, and what we can analyze is the network behavior while signaling. We are still researching the feasibility of monitoring network behavior.
 
-#### Webrtc-internals
+### 4.3 Webrtc-internals
 
 From the previous study, we already knew that there is a Chrome built-in tool, chrome://webrtc-internals, which will presents statistics about WebRTC usage in the current browser. 
 
-##### 1. Simulate Visiting and Monitor
+#### 4.3.1 Simulate Visiting and Monitor
 
 Webrtc-internals page changes in real time. When WebRTC starts to run, it presents statistics immediately, and vice versa. So if we can interact with webrtc-internals, and get information from it, we can know if some website runs WebRTC. We didn't find direct access to webrtc-internals, so we considered about simulating visiting it in the background and monitoring its change. One direct change is its UI change, some HTML elements was appended and removed when WebRTC starts and terminates.
 
@@ -77,18 +77,18 @@ Webrtc-internals page changes in real time. When WebRTC starts to run, it presen
 
 We found another Chrome extension, [Distill](https://distill.io/), which can monitor HTML elements changes. But Distill does not support monitoring Chrome built-in web pages, because it runs in the cloud. We will verify if we can monitor webrtc-internals in some way, locally, in the further research.
 
-##### 2. Learn from JavaScript Implementation
+#### 4.3.2 Learn from JavaScript Implementation
 
 Webrtc-internals is a WebUI in Chrome. Like normal web pages, it is implemented with web technologies such as HTML, CSS and JavaScript. We analyzed its JavaScript implementation. We found that it uses `chrome.send()` method to get messages from the browser, which can only be used by WebUI (those whose "URL" starts from "chrome://".)<sup>[2]</sup>
 
-#### Other Solutions
+### 4.4 Other Solutions
 
 We also analyzed another extension, [WebRTC Leak Prevent](https://github.com/aghorler/WebRTC-Leak-Prevent). It is an open source Chrome extension that prevents IP leak caused by WebRTC. This extension uses a Chrome extension API that controls WebRTC privacy settings, and does not detect WebRTC service.
 
 Another possible solution can be maintaining a list of websites that uses WebRTC in our database, and check if current website matches URL on the list. It probably works but has an obvious disadvantage, that is, it cannot detect websites outside the list and information may be outdated if the list is not updated frequently.
 
 
-#### Further Research
+### 4.5 Further Research
 
 At the beginning of sprint 3, we will continue to research for possible solution for our problem. 
 
