@@ -41,3 +41,63 @@ The interface part(or UI part) is the design part of the entire plug-in interfac
 
 A very simple user story might happen when using Google Hangouts. When the user wants to use the voice or video calls with others in the Google Hangouts, our product will first send the URL to Google's built-in detection WebRTC website, if the Google's built-in monitoring system detects that the current url is using WebRTC, all the results from the monitoring system will be collected and passed to our application, then the user will see a popup window that shows “The current website will use your WebRTC data.” At the end, the user can choose to continue the video chat or exit the current site.
 
+## Technology Selection
+
+The crucial part of our project is the analysis part, that is, to analyze if some web page is running WebRTC service. From another perspective, if we know the difference between a "normal" website from a website running with WebRTC, we can know if some website is running WebRTC. Also, we can learn from current tools, such as chrome://webrtc-internals and [WebRTC Leak Prevent](https://github.com/aghorler/WebRTC-Leak-Prevent). Based on these inspirations, we came up with some possible solutions. 
+
+#### Embed JavaScript Code
+
+Comparing with "normal" website, website running WebRTC service include script using WebRTC API.
+
+WebRTC JavaScript API usually contains three collections of APIs, `getUserMedia`, `RTCPeerConnection`, and `RTCDataChannel`, which respectively represents getting access to media services, signaling and direct data transmission. 
+
+However, not all APIs are used, for example, [tencent sports livestream](sports.qq.com) does not uses `getUserMedia` API, and [IP Leakage Detection](ip.voidse.com), [CSDN Blogs](blog.csdn.net) does not use both `getUserMedia` and `RTCDataChannel` API. Only `RTCPeerConnection` API is essential to create WebRTC service. So we can differentiate WebRTC website from other websites by detecting if this website uses `RTCPeerConnection`. To be specific, we can detect if this website executes script that creates a `RTCPeerConnection` instance or uses methods like `createOffer()`.
+
+While learning Chrome Extension development in sprint1, we learned that we can run `content scripts` in the context of webpage visited, and can read details of the webpage and pass information back to the father extension.<sup>[1]</sup> It seems make it possible to detect the website JavaScripts.
+
+After some research, we realized that simply eembedding some content scripts will not work because of three obstacles:
+1. Content scripts are run "in an isolated world"<sup>[1]</sup>, which means content scripts cannot access variables nor functions from the website script. 
+2. If the WebRTC-related instances and methods are not global, and only functions in a certain scope, our embeded code cannot interact with them.
+3. If the website JavaScript code is obfuscated, it will be really hard to parse the code and analyze it.
+
+#### Monitor Network Behavior
+
+Another big difference between website running WebRTC and other websites is network behavior. WebRTC technology create direct peer-to-peer connection for clients using UDP by default. In the signaling, it might also behave differently. It sends session description information to remote server and also communicate with ICE servers (STUN and TURN servers).
+
+Like the previous part, the peer-to-peer connection is not necessarily established, and what we can analyze is the network behavior while signaling. We are still researching the feasibility of monitoring network behavior.
+
+#### Webrtc-internals
+
+From the previous study, we already knew that there is a Chrome built-in tool, chrome://webrtc-internals, which will presents statistics about WebRTC usage in the current browser. 
+
+##### 1. Simulate Visiting and Monitor
+
+Webrtc-internals page changes in real time. When WebRTC starts to run, it presents statistics immediately, and vice versa. So if we can interact with webrtc-internals, and get information from it, we can know if some website runs WebRTC. We didn't find direct access to webrtc-internals, so we considered about simulating visiting it in the background and monitoring its change. One direct change is its UI change, some HTML elements was appended and removed when WebRTC starts and terminates.
+
+![UI Change](https://github.com/chengl11/WebRTC_Cybersecurity_Project/blob/master/sprint2/images/UI-change)
+
+We found another Chrome extension, [Distill](https://distill.io/), which can monitor HTML elements changes. But Distill does not support monitoring Chrome built-in web pages, because it runs in the cloud. We will verify if we can monitor webrtc-internals in some way, locally, in the further research.
+
+##### 2. Learn from JavaScript Implementation
+
+Webrtc-internals is a WebUI in Chrome. Like normal web pages, it is implemented with web technologies such as HTML, CSS and JavaScript. We analyzed its JavaScript implementation. We found that it uses `chrome.send()` method to get messages from the browser, which can only be used by WebUI (those whose "URL" starts from "chrome://".)<sup>[2]</sup>
+
+#### Other Solutions
+
+We also analyzed another extension, [WebRTC Leak Prevent](https://github.com/aghorler/WebRTC-Leak-Prevent). It is an open source Chrome extension that prevents IP leak caused by WebRTC. This extension uses a Chrome extension API that controls WebRTC privacy settings, and does not detect WebRTC service.
+
+Another possible solution can be maintaining a list of websites that uses WebRTC in our database, and check if current website matches URL on the list. It probably works but has an obvious disadvantage, that is, it cannot detect websites outside the list and information may be outdated if the list is not updated frequently.
+
+
+#### Further Research
+
+At the beginning of sprint 3, we will continue to research for possible solution for our problem. 
+
+First, we will dive deep in network monitoring. We will check the APIs provided for Chrome extension concerning network.
+
+Second, we will verify if we can interact with webrtc-internals in another way, or if we can simulate visiting webrtc-internals in the background. 
+
+
+## Reference
+[1] Google, "Content Scripts", https://developer.chrome.com/extensions/content_scripts (Accessed: 18 October 2020)
+[2] Google, "WebUI Explainer", https://chromium.googlesource.com/chromium/src/+/master/docs/webui_explainer.md (Accessed: 18 October 2020)
