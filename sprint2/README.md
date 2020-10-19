@@ -13,10 +13,10 @@ This is a repository for EC601 WebRTC Cybersecurity Project Sprint 02. The expec
 
 ## Definition of Architecture
 
-![Image of architecture](https://github.com/chengl11/WebRTC_Cybersecurity_Project/blob/main/Sprint2/images/Architecture.png)\
+![Image of architecture](sprint2/images/Architecture.png)\
 
 
 
 ## Functional demonstration of major user story
 
-![Image of architecture](https://github.com/chengl11/WebRTC_Cybersecurity_Project/blob/main/Sprint2/images/User-story.png)\
+![Image of architecture](sprint2/images/User-story.png)\
