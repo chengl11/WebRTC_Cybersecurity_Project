@@ -4,7 +4,6 @@
 **Project Name:** WebRTC & Cybersecurity Project Sprint 02
 
 ## Description
-<u></u>
 This is a description for EC601 WebRTC Cybersecurity Project Sprint 02. The expectation of this sprint is to:
 1. Definition of architecture
 2. Functional demonstration of major user story
@@ -19,7 +18,7 @@ The basic structure of our product can be divided into four parts: the user beha
 
 For the code part, our current idea is to divide it into four components: the listening component, the analysis component, the interaction component and the interface component(or UI component).
 
-#### User Behavior Part
+##### <u>User Behavior Part</u>
 First the user needs to install and turn on our "WebRTC Notifier" plug-in. 
 Then, when the user opens a website, the listening part of our code begins to execute. It will collect the URLs of all the opening sites and save them in a list.
 
