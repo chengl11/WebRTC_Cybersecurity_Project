@@ -30,7 +30,7 @@ The analysis part will create the connection between Google's built-in WebRTC-in
 The interactive section takes the results collecting from the WebRTC-internals site and passes them to our Google extension application. The extension will then pop up a window telling the user that the current site wants to use your WebRTC. Users can then choose to continue browsing the site or exit.
 
 
-### 2.4 The Interface Part
+### 2.4 The Interface Component
 The interface part(or UI part) is the design part of the entire plug-in interface.
 
 
