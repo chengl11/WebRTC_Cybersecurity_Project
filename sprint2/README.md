@@ -15,23 +15,23 @@ This is a description for EC601 WebRTC Cybersecurity Project Sprint 02. The expe
 
 ![Image of architecture](https://github.com/chengl11/WebRTC_Cybersecurity_Project/blob/master/sprint2/images/Architecture.png)
 
-The basic structure of our product can be divided into four parts: the user behavior part, the code part, the Google built-in WebRTC Detection web page part, and the "WebRTC Notifier" plug-in part.\
+The basic structure of our product can be divided into four parts: the user behavior part, the code part, the Google built-in WebRTC Detection web page part, and the "WebRTC Notifier" plug-in part.
 
-For the code part, our current idea is to divide it into four components: the listening component, the analysis component, the interaction component and the interface component(or UI component).\
+For the code part, our current idea is to divide it into four components: the listening component, the analysis component, the interaction component and the interface component(or UI component).
 
-#### User Behavior Part
+#### **User Behavior Part**
 First the user needs to install and turn on our "WebRTC Notifier" plug-in. 
 Then, when the user opens a website, the listening part of our code begins to execute. It will collect the URLs of all the opening sites and save them in a list. \
 
-#### Code Part
+#### **Code Part**
 The analysis part will create the connection between Google's built-in WebRTC website and our project. It sends the list of saved sites to the Google built-in website and analyzes the results. This section will then return all results if Google's built-in monitoring system detects that the current URL wants to use WebRTC. 
 
 
-#### The Google built-in WebRTC Detection web page Part
+#### **The Google built-in WebRTC Detection web page Part**
 The interactive section takes the results collecting from the Google built-in site and passes them to our Google extension application. Our application will pop up a window telling the user that the current site wants to use your WebRTC. Users can then choose to continue browsing the site or exit. 
 
 
-#### Interface Part
+#### **Interface Part**
 The interface part(or UI part) is the design part of the entire plug-in interface.
 
 
