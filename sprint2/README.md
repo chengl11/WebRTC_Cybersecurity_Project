@@ -1,11 +1,11 @@
 # WebRTC Cybersecurity Project Sprint 02
-**Author Name:** Lin Cheng, Wenqing Yang\
+**Author Name:** Lin Cheng, Wenqiang Yang\
 **Due Date:** 10/19/2020\
 **Project Name:** WebRTC & Cybersecurity Project Sprint 02
 
 ## Description
 
-This is a repository for EC601 WebRTC Cybersecurity Project Sprint 02. The expectation of this sprint is to:\
+This is a repository for EC601 WebRTC Cybersecurity Project Sprint 02. The expectation of this sprint is to:
 1. Definition of architecture
 2. Functional demonstration of major user story
 3. Technology Selection and justification
@@ -13,7 +13,7 @@ This is a repository for EC601 WebRTC Cybersecurity Project Sprint 02. The expec
 
 ## Definition of Architecture
 
-![Image of architecture](https://github.com/chengl11/WebRTC_Cybersecurity_Project/blob/main/Sprint2/images/Architecture.png)\
+![Image of architecture](https://github.com/chengl11/WebRTC_Cybersecurity_Project/blob/master/sprint2/images/Architecture.png)
 
 The basic structure of our product can be divided into four parts: the user behavior part, the code part, the Google built-in WebRTC Detection web page part, and the "WebRTC Notifier" plug-in part.\
 
@@ -40,3 +40,4 @@ The interface part(or UI part) is the design part of the entire plug-in interfac
 ![Image of architecture](https://github.com/chengl11/WebRTC_Cybersecurity_Project/blob/main/Sprint2/images/User-story.png)\
 
 A very simple user story might happen when using Google Hangouts. When the user wants to use the voice or video calls with others in the Google Hangouts, our product will first send the URL to Google's built-in detection WebRTC website, if the Google's built-in monitoring system detects that the current url is using WebRTC, all the results from the monitoring system will be collected and passed to our application, then the user will see a popup window that shows “The current website will use your WebRTC data.” At the end, the user can choose to continue the video chat or exit the current site.
+
