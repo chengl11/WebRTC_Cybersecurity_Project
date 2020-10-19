@@ -1,6 +1,6 @@
 # WebRTC & Cybersecurity Project Sprint 02
-**Author Name:** Lin Cheng, Wenqiang Yang
-**Due Date:** 10/19/2020
+**Author Name:** Lin Cheng, Wenqiang Yang\
+**Due Date:** 10/19/2020\
 **Project Name:** WebRTC & Cybersecurity Project Sprint 02
 
 ## 1. Description
