@@ -2,11 +2,12 @@
 **Author Name:** Lin Cheng, Wenqiang Yang\
 **Project Name:** WebRTC & Cybersecurity Project
 
-### Description (Need to be modified)
+### Description (Continuously update)
 
-You are asked to examine the vulnerability of a person who uses WEBRTC technology for peer to peer or multi-party communications.  
-Please go over what WEBRTC is about.  What access it provides to the user system and credential and then analyze the security and vulnerability of any consumer who may use such applications.  You are expected to identify the different aspects of cyber security and provide a good analysis of the threat.
-it will be good to show examples that you have run yourself and provide recommendations of how to fix such issues.
+This project is to develop a Google Extension call "WebRTC Notifier". When a user opens a new website, if the site is using WebRTC, a window will pop up to indicate that the user is currently using WebRTC. Users can choose to ban WebRTC from the site or to quit the site.
 
 ## Sprint 1
-For more infomation about our sprint 1, please visit https://github.com/chengl11/WebRTC_Cybersecurity_Project/tree/master/sprint%201
+For more infomation about our sprint 1, please visit https://github.com/chengl11/WebRTC_Cybersecurity_Project/tree/master/sprint1
+
+## Sprint 2
+For more infomation about our sprint 2, please visit https://github.com/chengl11/WebRTC_Cybersecurity_Project/tree/master/sprint2
