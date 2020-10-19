@@ -5,7 +5,7 @@
 
 ## Description
 
-This is a repository for EC601 WebRTC Cybersecurity Project Sprint 02. The expectation of this sprint is to:
+This is a description for EC601 WebRTC Cybersecurity Project Sprint 02. The expectation of this sprint is to:
 1. Definition of architecture
 2. Functional demonstration of major user story
 3. Technology Selection and justification
