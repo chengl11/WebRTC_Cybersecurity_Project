@@ -14,23 +14,23 @@ This is a description for EC601 WebRTC Cybersecurity Project Sprint 02. The expe
 
 ![Image of architecture](https://github.com/chengl11/WebRTC_Cybersecurity_Project/blob/master/sprint2/images/Architecture.png)
 
-The basic structure of our product can be divided into four parts: the user behavior part, the code part, the Google built-in WebRTC Detection web page part, and the "WebRTC Notifier" plug-in part.
+The basic structure of our product can be divided into four parts: the user behavior part, the code part, the Google WebRTC-internals part, and the "WebRTC Notifier" plug-in part.
 
 For the code part, our current idea is to divide it into four components: the listening component, the analysis component, the interaction component and the interface component(or UI component).
 
-### 2.1 User Behavior Part
+### 2.1 The Listening Component
 First the user needs to install and turn on our "WebRTC Notifier" plug-in. 
-Then, when the user opens a website, the listening part of our code begins to execute. It will collect the URLs of all the opening sites and save them in a list.
+Then, the listening part of our code begins to execute. It will collect the URLs of all the opening sites and save them in a list.
 
-### 2.2 Code Part
-The analysis part will create the connection between Google's built-in WebRTC website and our project. It sends the list of saved sites to the Google built-in website and analyzes the results. This section will then return all results if Google's built-in monitoring system detects that the current URL wants to use WebRTC. 
-
-
-### 2.3 The Google built-in WebRTC Detection web page Part
-The interactive section takes the results collecting from the Google built-in site and passes them to our Google extension application. Our application will pop up a window telling the user that the current site wants to use your WebRTC. Users can then choose to continue browsing the site or exit. 
+### 2.2 The Analysis Component
+The analysis part will create the connection between Google's built-in WebRTC-internals website and our product. It sends the list of saved sites to the WebRTC-internals website and analyzes the results. This section will then return all results if Google's built-in monitoring system detects that the current URL wants to use WebRTC. 
 
 
-### 2.4 Interface Part
+### 2.3 The Interaction Component
+The interactive section takes the results collecting from the WebRTC-internals site and passes them to our Google extension application. The extension will then pop up a window telling the user that the current site wants to use your WebRTC. Users can then choose to continue browsing the site or exit.
+
+
+### 2.4 The Interface Part
 The interface part(or UI part) is the design part of the entire plug-in interface.
 
 
@@ -38,7 +38,7 @@ The interface part(or UI part) is the design part of the entire plug-in interfac
 
 ![Image of architecture](https://github.com/chengl11/WebRTC_Cybersecurity_Project/blob/master/sprint2/images/User-story.png)
 
-A very simple user story might happen when using Google Hangouts. When the user wants to use the voice or video calls with others in the Google Hangouts, our product will first send the URL to Google's built-in detection WebRTC website, if the Google's built-in monitoring system detects that the current url is using WebRTC, all the results from the monitoring system will be collected and passed to our application, then the user will see a popup window that shows “The current website will use your WebRTC data.” At the end, the user can choose to continue the video chat or exit the current site.
+A very simple user story might happen when using Google Hangouts. When the user wants to use the voice or video calls with others in the Google Hangouts, our product will first send the URL to Google's WebRTC-internals website, if the monitoring system detects that the current url is using WebRTC, all the results from the monitoring system will be collected and passed to our application, then the user will see a popup window that shows “The current website will use your WebRTC data.” At the end, the user can choose to continue the video chat or exit the current site.
 
 ## 4. Technology Selection
 
@@ -54,7 +54,7 @@ However, not all APIs are used, for example, [tencent sports livestream](sports.
 
 While learning Chrome Extension development in sprint1, we learned that we can run `content scripts` in the context of webpage visited, and can read details of the webpage and pass information back to the father extension.<sup>[1]</sup> It seems make it possible to detect the website JavaScripts.
 
-After some research, we realized that simply eembedding some content scripts will not work because of three obstacles:
+After some research, we realized that simply embedding some content scripts will not work because of three obstacles:
 1. Content scripts are run "in an isolated world"<sup>[1]</sup>, which means content scripts cannot access variables nor functions from the website script. 
 2. If the WebRTC-related instances and methods are not global, and only functions in a certain scope, our embeded code cannot interact with them.
 3. If the website JavaScript code is obfuscated, it will be really hard to parse the code and analyze it.
@@ -99,4 +99,6 @@ Second, we will verify if we can interact with webrtc-internals in another way, 
 
 ## Reference
 [1] Google, "Content Scripts", https://developer.chrome.com/extensions/content_scripts (Accessed: 18 October 2020)
+
 [2] Google, "WebUI Explainer", https://chromium.googlesource.com/chromium/src/+/master/docs/webui_explainer.md (Accessed: 18 October 2020)
+
