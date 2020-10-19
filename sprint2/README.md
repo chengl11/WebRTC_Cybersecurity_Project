@@ -85,16 +85,16 @@ Webrtc-internals is a WebUI in Chrome. Like normal web pages, it is implemented 
 
 We also analyzed another extension, [WebRTC Leak Prevent](https://github.com/aghorler/WebRTC-Leak-Prevent). It is an open source Chrome extension that prevents IP leak caused by WebRTC. This extension uses a Chrome extension API that controls WebRTC privacy settings, and does not detect WebRTC service.
 
-Another possible solution can be maintaining a list of websites that uses WebRTC in our database, and check if current website matches URL on the list. It probably works but has an obvious disadvantage, that is, it cannot detect websites outside the list and information may be outdated if the list is not updated frequently.
+Another possible solution is maintaining a list of websites that uses WebRTC in our database, and check if current website matches URL on the list. It probably works but has an obvious disadvantage. It cannot detect websites outside the list and information may be outdated if the list is not updated frequently.
 
 
 ### 4.5 Further Research
 
 At the beginning of sprint 3, we will continue to research for possible solution for our problem. 
 
-First, we will dive deep in network monitoring. We will check the APIs provided for Chrome extension concerning network.
+Firstly, we will dive deep in network monitoring. We will check the APIs provided for Chrome extension concerning network.
 
-Second, we will verify if we can interact with webrtc-internals in another way, or if we can simulate visiting webrtc-internals in the background. 
+Secondly, we will verify if we can interact with webrtc-internals in another way, or if we can simulate visiting webrtc-internals in the background. 
 
 
 ## Reference
