@@ -4,7 +4,7 @@
 **Project Name:** WebRTC & Cybersecurity Project Sprint 02
 
 ## 1. Description
-This is a description for EC601 WebRTC Cybersecurity Project Sprint 02. The expectation of this sprint is to:
+This is a description for EC601 WebRTC Cybersecurity Project Sprint 02. The expectation of this sprint:
 1. Definition of architecture
 2. Functional demonstration of major user story
 3. Technology Selection and justification
