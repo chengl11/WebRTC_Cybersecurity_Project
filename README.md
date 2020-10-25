@@ -11,3 +11,7 @@ For more infomation about our sprint 1, please visit https://github.com/chengl11
 
 ## Sprint 2
 For more infomation about our sprint 2, please visit https://github.com/chengl11/WebRTC_Cybersecurity_Project/tree/master/sprint2
+
+## Technology Selection
+See in tech.md
+*We are working on changing file struture*
