@@ -46,7 +46,7 @@ sprint 3 update
 ### 4. Error Catching
 Similar to the "WebRTC Control" plug-in, when a user opens a Web page, all the WebRTC components of that page are disabled. When the site wants to use one of the WebRTC components, it should report an error or the error appears on the page. If you can capture these errors and analyze the results, it indicates that the site wants to use WEbrTC. We can build our products around these errors.
 
-![Image of change-rtc-func]((https://github.com/chengl11/WebRTC_Cybersecurity_Project/blob/master/img\change-rtc-func.png)
+![Image of change-rtc-func](https://github.com/chengl11/WebRTC_Cybersecurity_Project/blob/master/img/change-rtc-func.png)
 
 ### 5. Network Analysis 
 
@@ -61,7 +61,7 @@ A types.BrowserSetting object whose underlying value is a string. This setting a
 * disable_non_proxied_udp
 * proxy_only (only connections using TURN on a TCP connection through a proxy are allowed)
 
-![Image of rtciphandlingpolicy]((https://github.com/chengl11/WebRTC_Cybersecurity_Project/blob/master/img\rtciphandlingpolicy.png)
+![Image of rtciphandlingpolicy](https://github.com/chengl11/WebRTC_Cybersecurity_Project/blob/master/img/rtciphandlingpolicy.png)
 
 ### 6. WebRTC-internals
 
