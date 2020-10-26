@@ -75,7 +75,7 @@ But it seems that this API cannot help us to tell the difference between a norma
 
 We used https://ip.voidsec.com as an example, and monitored if something special happened in the network traffic, comparing to other web page that does not use WebRTC. 
 
-We used the Chrome DevTools network to monitor it, and found that the HTTP requests have nothing special. We also found that we cannot monitor requests using TCP, UDP or STUN protocols in Chrome like we did using WireShark (because they are from more bottom layers of OSI model).
+We used the Chrome DevTools network to monitor it, and found that the HTTP requests have nothing special. We also found that we cannot monitor requests using TCP, UDP or STUN protocols in Chrome like we did using WireShark (because they belong to more bottom layers of OSI model).
 
 ## 5. Error Catching
 
