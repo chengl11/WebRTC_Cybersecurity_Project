@@ -79,7 +79,7 @@ We used the Chrome DevTools network to monitor it, and found that the HTTP reque
 
 ## 5. Error Catching
 
-Similar to the "WebRTC Control" plug-in, when a user opens a Web page, all the WebRTC components of that page are disabled. When the site wants to use one of the WebRTC components, it should report an error or the error appears on the page. If you can capture these errors and analyze the results, it indicates that the site wants to use WEbrTC. We can build our products around these errors.
+Similar to the "WebRTC Control" plug-in, when a user opens a Web page, all the WebRTC components of that page are disabled. When the site wants to use one of the WebRTC components, it should report an error or the error appears on the page. If you can capture these errors and analyze the results, it indicates that the site wants to use WebRTC. We can build our products around these errors.
 
 ![Image of change-rtc-func](https://github.com/chengl11/WebRTC_Cybersecurity_Project/blob/master/img/change-rtc-func.png)
 
