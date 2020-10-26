@@ -13,5 +13,7 @@ For more infomation about our sprint 1, please visit https://github.com/chengl11
 For more infomation about our sprint 2, please visit https://github.com/chengl11/WebRTC_Cybersecurity_Project/tree/master/sprint2
 
 ## Technology Selection
-See in tech.md
-*We are working on changing file struture*
+[Tech.md](https://github.com/chengl11/WebRTC_Cybersecurity_Project/blob/master/tech.md) includes technology selection part of our project. We analyzed different ways to detect the usage of WebRTC and the feasibility of these possible solutions. We worked on this both in sprint 2 and sprint 3.
+
+**p.s.** We changed the way to arrange files since Sprint 3
+
