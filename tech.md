@@ -43,11 +43,25 @@ Webrtc-internals is a WebUI in Chrome. Like normal web pages, it is implemented 
 
 sprint 3 update 
 
-### 4. sprint3 solution1 (Error Catching)
+### 4. Error Catching
+Similar to the "WebRTC Control" plug-in, when a user opens a Web page, all the WebRTC components of that page are disabled. When the site wants to use one of the WebRTC components, it should report an error or the error appears on the page. If you can capture these errors and analyze the results, it indicates that the site wants to use WEbrTC. We can build our products around these errors.
 
+![Image of change-rtc-func](https://github.com/chengl11/WebRTC_Cybersecurity_Project/blob/master/img/change-rtc-func.png)
 
 ### 5. Network Analysis 
 
+#### 5.1 Chrome Build-in APIs
+
+##### 5.1.1 chrome.privacy.network.WebRTCIPHandlingPolicy
+A types.BrowserSetting object whose underlying value is a string. This setting allows users to specify the media performance/privacy tradeoffs which affect how WebRTC traffic will be routed and how much local address information is exposed. It may take any one of the following values, from least private to most private:<sup>[3]</sup>
+
+* default
+* default_public_and_private_interfaces
+* default_public_interface_only
+* disable_non_proxied_udp
+* proxy_only (only connections using TURN on a TCP connection through a proxy are allowed)
+
+![Image of rtciphandlingpolicy](https://github.com/chengl11/WebRTC_Cybersecurity_Project/blob/master/img/rtciphandlingpolicy.png)
 
 ### 6. WebRTC-internals
 
@@ -57,3 +71,4 @@ sprint 3 update
 
 [2] Google, "WebUI Explainer", https://chromium.googlesource.com/chromium/src/+/master/docs/webui_explainer.md (Accessed: 18 October 2020)
 
+[3] Mozilla | MDN, Privacy.network. (n.d.). Retrieved October 26, 2020, from https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/privacy/network
