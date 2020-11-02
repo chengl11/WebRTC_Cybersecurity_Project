@@ -121,11 +121,11 @@ If we use a server to help us "detect", we can use many powerful tools, like [Se
 
 Running the local test script, it automatically opens a browser, and visits those URLs. With the help of Selenium, we can select elements we want using CSS selector. For example, we can get the URLs of webpages which run WebRTC using `driver.find_elements(By.CLASS_NAME, 'tab-head')`
 
-![local_test_selenium](https://github.com/chengl11/WebRTC_Cybersecurity_Project/blob/master/img/local_test_selenium.png)
+<img src="https://github.com/chengl11/WebRTC_Cybersecurity_Project/blob/master/img/local_test_selenium.png" alt="local_test_selenium" style="zoom:40%"/>
 
 In the server side, we did some modifications to run headless Chrome as the server does not support GUI. It can also speed up the process.
 
-![server_test_selenium](https://github.com/chengl11/WebRTC_Cybersecurity_Project/blob/master/img/server_test_selenium.png)
+<img src="https://github.com/chengl11/WebRTC_Cybersecurity_Project/blob/master/img/server_test_selenium.png" alt="server_test_selenium" style="zoom:40%"/>
 
 Inspite of advantages like invisible detection, working with a remote server also have some disadvantages.
 
