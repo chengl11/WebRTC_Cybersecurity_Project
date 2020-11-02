@@ -79,7 +79,7 @@ We used the Chrome DevTools network to monitor it, and found that the HTTP reque
 
 ## 5. Error Catching
 
-Similar to the "WebRTC Control" plug-in, when a user opens a Web page, all the WebRTC components of that page are disabled. When the site wants to use one of the WebRTC components, it should report an error or the error appears on the page. If you can capture these errors and analyze the results, it indicates that the site wants to use WebRTC. We can build our products around these errors.
+Similar to the "WebRTC Control" plug-in, when users open Chrome, all the WebRTC components in the browser will be disabled. When a site wants to use one of the WebRTC components, the console should report an error. Then, our product will capture these errors and analyze the results. Therefore, we can build our products around these errors.
 
 ![Image of change-rtc-func](https://github.com/chengl11/WebRTC_Cybersecurity_Project/blob/master/img/change-rtc-func.png)
 
@@ -97,6 +97,15 @@ Uncaught TypeError: myPeerConnection is not a constructor
 ```
 
 ## 6. WebRTC-internals
+
+### 6.1 Basic Solution
+
+The MVP of this scenario is Chrome built-in WebRTC-Internals website, which opens in another TAB when the users run our plug-in. This site automatically detects if other sites the user has opened are running WebRTC, and if WebRTC runs are detected, the data and results are fed back to the site. Our plug-in will use this data to pop up a window to prompt the user.
+
+#### 6.1.1 WebRTC Externals
+We already found an exist Chrome Extension called "WebRTC Externals" that could open a similar WebRTC-Internals website in another tab. "WebRTC Externals" is a WebExtension that aims to allow much of the same workflow that developers are using on Chrome's webrtc-internals internal page. However, it is implemented as an extension and therefore does not rely on any internal infrastructure.
+
+### 6.2 Advanced Solution
 
 Instead of visiting WebRTC-internals in user's browser "secretly", we can visit it in the browser of a remote server, like Distill do.
 
