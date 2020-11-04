@@ -79,7 +79,7 @@ We used the Chrome DevTools network to monitor it, and found that the HTTP reque
 
 ## 5. Error Catching
 
-Similar to the "WebRTC Control" plug-in, when users open Chrome, all the WebRTC components in the browser will be disabled. When a site wants to use one of the WebRTC components, the console should report an error. Then, our product will capture these errors and analyze the results. Therefore, we can build our products around these errors.
+This solution is inspired by the "WebRTC Control" extension. when users open Chrome, all the WebRTC components in the browser will be disabled. When a site wants to use one of the WebRTC components, the console should report an error. Then, our product will capture these errors and analyze the results. Therefore, we can build our products around these errors.
 
 ![Image of change-rtc-func](https://github.com/chengl11/WebRTC_Cybersecurity_Project/blob/master/img/change-rtc-func.png)
 
