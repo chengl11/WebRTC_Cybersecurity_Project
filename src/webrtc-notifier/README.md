@@ -1,6 +1,6 @@
-# WebRTC Externals
+# WebRTC Notifier
 
-WebRTC Externals is a [WebExtension](https://developer.mozilla.org/en-US/Add-ons/WebExtensions) that 
+WebRTC Notifier is a [WebExtension](https://developer.mozilla.org/en-US/Add-ons/WebExtensions) that 
 aims to allow much of the same workflow that developers are using on Chrome's [webrtc-internals](https://testrtc.com/webrtc-internals-documentation/)
 internal page. However, it is implemented as an extension and therefore does not rely on any internal infrastructure.
 As a result, it can be run in other browsers like Firefox or Microsoft Edge.
