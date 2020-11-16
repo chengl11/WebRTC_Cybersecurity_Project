@@ -22,12 +22,12 @@ In sprint 4,
 
   - In the process of posting message: 
 
-    - When inject.js post a message to the channel, we call our function to pop up a window.
-    - Problem: for web page that runs WebRTC, it posts message every second. 
+    - Insert our function of opening a window where inject.js posts messages.  When inject.js posts a message to the channel, our function was called.
+    - Problem: for web page that runs WebRTC, it posts a message every second. 
 
   - In the process of displaying content:
 
-    When webrtc-internals.js adds some particular contents to the background page, we pop up a window.
+    Insert our function of opening a window to webrtc-internals.js. When webrtc-internals.js adds some particular contents to the background page, we pop up a window.
 
 
 
@@ -37,7 +37,7 @@ Will be shown in class.
 
 
 
-## Goal for Sprint 5
+## Sprint 5
 1. Add details to the pop-up window. Alert users to the risk of WebRTC leakage. Like giving away their real IPs.
 2. Add another option for users to open our extension. Now, our extension has to be opened by clicking the icon. We will add a new option. If the user selects this option, our plug-in will automatically run in the background when they open a new browser. This feature will open another new TAB automatically.
 3. Add unit tests
