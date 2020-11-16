@@ -75,11 +75,11 @@ But it seems that this API cannot help us to tell the difference between a norma
 
 We used https://ip.voidsec.com as an example, and monitored if something special happened in the network traffic, comparing to other web page that does not use WebRTC. 
 
-We used the Chrome DevTools network to monitor it, and found that the HTTP requests have nothing special. We also found that we cannot monitor requests using TCP, UDP or STUN protocols in Chrome like we did using WireShark (because they are from more bottom layers of OSI model).
+We used the Chrome DevTools network to monitor it, and found that the HTTP requests have nothing special. We also found that we cannot monitor requests using TCP, UDP or STUN protocols in Chrome like we did using WireShark (because they belong to more bottom layers of OSI model).
 
 ## 5. Error Catching
 
-Similar to the "WebRTC Control" plug-in, when users open Chrome, all the WebRTC components in the browser will be disabled. When a site wants to use one of the WebRTC components, the console should report an error. Then, our product will capture these errors and analyze the results. Therefore, we can build our products around these errors.
+This solution is inspired by the "WebRTC Control" extension. when users open Chrome, all the WebRTC components in the browser will be disabled. When a site wants to use one of the WebRTC components, the console should report an error. Then, our product will capture these errors and analyze the results. Therefore, we can build our products around these errors.
 
 ![Image of change-rtc-func](https://github.com/chengl11/WebRTC_Cybersecurity_Project/blob/master/img/change-rtc-func.png)
 
@@ -103,29 +103,39 @@ Uncaught TypeError: myPeerConnection is not a constructor
 The MVP of this scenario is Chrome built-in WebRTC-Internals website, which opens in another TAB when the users run our plug-in. This site automatically detects if other sites the user has opened are running WebRTC, and if WebRTC runs are detected, the data and results are fed back to the site. Our plug-in will use this data to pop up a window to prompt the user.
 
 #### 6.1.1 WebRTC Externals
+
 We already found an exist Chrome Extension called "WebRTC Externals" that could open a similar WebRTC-Internals website in another tab. "WebRTC Externals" is a WebExtension that aims to allow much of the same workflow that developers are using on Chrome's webrtc-internals internal page. However, it is implemented as an extension and therefore does not rely on any internal infrastructure.
 
-### 6.2 Advanced Solution
+### 6.2 Solution With A Server
 
-Instead of visiting WebRTC-internals in user's browser "secretly", we can visit it in the browser of a remote server, like Distill do.
+The basic solution of "detecting" process is not totally invisible to users, as it opens a tab in user's browser. To make it completely invisible, another solution is visiting WebRTC-internals in the browser of a remote server.
 
-User browser open a URL => send to server => server browser open the URL(and also webrtc-internals) => monitor content change in webrtc-internals in server browser => (if change) send to user browser extension => extension receive the message and notify the user
+The whole procedures are:
 
-**Possible tech difficulties:**
+1. The user opens a web page, the extension sends the URL of the web page to our server. 
+2. When the server receives the URL, it opens the URL in its browser. And the browser is always opening WebRTC-internals. If the newly opened webpage runs WebRTC, there will be some content changes in WebRTC-internals.
+3. The server sends back to user's browser if this web page runs WebRTC or not. 
+4. The extension receives the message and notify the user.
 
-- Can remote servers run chrome? And how can we interact with chrome in the remote server.
+If we use a server to help us "detect", we can use many powerful tools, like [Selenium](https://www.selenium.dev/) or [Puppeteer](https://pptr.dev/), to simulate browser behavior, and to get results about if some web pages use WebRTC. We did tests both locally and in the server side. Test code sees [here](https://github.com/chengl11/WebRTC_Cybersecurity_Project/tree/master/test_selenium). 
 
-  See:https://kennethghartman.com/create-an-ec2-that-runs-chrome-for-sandboxed-websurfing/
+Running the local test script, it automatically opens a browser, and visits those URLs. With the help of Selenium, we can select elements we want using CSS selector. For example, we can get the URLs of webpages which run WebRTC using `driver.find_elements(By.CLASS_NAME, 'tab-head')`
 
-  https://superuser.com/questions/449005/how-do-i-run-chromium-on-ubuntu-server
+<img src="https://github.com/chengl11/WebRTC_Cybersecurity_Project/blob/master/img/local_test_selenium.png" alt="local_test_selenium" style="zoom:40%"/>
 
-  https://unix.stackexchange.com/questions/353258/how-to-run-google-chrome-or-chromium-on-a-remote-ssh-session
+In the server side, we did some modifications to run headless Chrome as the server does not support GUI. It can also speed up the process.
 
-  Also, we can utilize [Selenium WebDriver](https://www.selenium.dev/documentation/en/webdriver/) to do the automation work, instead of using a true Chrome browser.
+<img src="https://github.com/chengl11/WebRTC_Cybersecurity_Project/blob/master/img/server_test_selenium.png" alt="server_test_selenium" style="zoom:40%"/>
 
-- Communication between extension and server.
+Inspite of advantages like invisible detection, working with a remote server also have some disadvantages.
 
-- How to monitor chrome-internals content change? Test it on our laptop with Selenium.
+- We cannot detect web pages that require login, which means we cannot detect most video conference websites. Luckily, our user stories mainly focus about potential IP address leak and malicious attack, video conference websites are less likely to have these malicious behaviors.
+- The cost can be relatively high, comparing to the basic solution. So it can be an advanced function of our product, and let users to decide.
+- There are also privacy issues. We can use encryption when transmitting URL and browser ID.  Also, we can open source our code. So users can review our code, or run the same code in their server.
+
+## Conclusion
+
+As we are doing agile development, we will firstly develop the basic solution that uses WebRTC-internals in the user's browser, which is the Minimum Value Product of our project. And after developing MVP, we can develop advanced functions, for example, developing the solution with a server, and blocking all WebRTC functions.
 
 ## Reference
 
