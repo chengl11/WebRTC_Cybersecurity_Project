@@ -22,12 +22,12 @@ In sprint 4,
 
   - In the process of posting message: 
 
-    - When inject.js post a message to the channel, we call our function to pop up a window.
-    - Problem: for web page that runs WebRTC, it posts message every second. 
+    - Insert our function of opening a window where inject.js posts messages.  When inject.js posts a message to the channel, our function was called.
+    - Problem: for web page that runs WebRTC, it posts a message every second. 
 
   - In the process of displaying content:
 
-    When webrtc-internals.js adds some particular contents to the background page, we pop up a window.
+    Insert our function of opening a window to webrtc-internals.js. When webrtc-internals.js adds some particular contents to the background page, we pop up a window.
 
 
 
