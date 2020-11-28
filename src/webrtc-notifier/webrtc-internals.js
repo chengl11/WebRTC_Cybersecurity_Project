@@ -1882,7 +1882,7 @@ function initialize() {
   peerConnectionUpdateTable = new PeerConnectionUpdateTable();
   statsTable = new StatsTable(ssrcInfoManager);
 
-  chrome.send('finishedDOMLoad');
+  // chrome.send('finishedDOMLoad');
 
   // Requests stats from all peer connections every second.
   window.setInterval(requestStats, 1000);
@@ -1892,8 +1892,8 @@ document.addEventListener('DOMContentLoaded', initialize);
 
 /** Sends a request to the browser to get peer connection statistics. */
 function requestStats() {
-  if (Object.keys(peerConnectionDataStore).length > 0)
-    chrome.send('getAllStats');
+  // if (Object.keys(peerConnectionDataStore).length > 0)
+    // chrome.send('getAllStats');
 }
 
 
