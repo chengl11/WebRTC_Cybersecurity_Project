@@ -269,6 +269,6 @@ if (typeof browser === 'undefined') {
 var channel = browser.runtime.connect();
 window.addEventListener('message', function (event) {
     if (typeof(event.data) === 'string') return;
-    if (event.data[0] !== 'WebRTCExternals') return;
+    if (typeof event.data === 'undefined' || event.data[0] !== 'WebRTCExternals') return;
     channel.postMessage(event.data);
 });
