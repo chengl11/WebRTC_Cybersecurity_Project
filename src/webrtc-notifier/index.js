@@ -16,7 +16,8 @@ openBackgroundPageWithCheck = () => {
             if (tabs.every(tab => tab.url != browser.extension.getURL('background.html'))) {
                 browser.tabs.create({
                     'url': browser.extension.getURL('background.html'),
-                    pinned: true,
+                    index: 0,
+                    // pinned: true,
                     active: false
                 });
             }
