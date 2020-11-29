@@ -18,7 +18,7 @@ form.addEventListener("submit", function(event) {
     if (entry[0] === 'activate') {
       output += 'is set to ';
       if (entry[1] === 'onConnect') {
-        output += '"Activate when first page is loaded"'
+        output += '"Activate automatically"'
       } else {
         output += '"Activate when clicked"'
       }
