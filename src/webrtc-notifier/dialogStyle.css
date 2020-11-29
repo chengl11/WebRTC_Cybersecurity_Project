@@ -1,0 +1,22 @@
+/* div.content {
+    text-align: center;
+} */
+div.content {
+    font-size: large;
+    text-align: center;
+}
+
+div.text-content h1 {
+    color: red;
+}
+
+div.text-content p{
+    font-size: medium;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+div.button-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
