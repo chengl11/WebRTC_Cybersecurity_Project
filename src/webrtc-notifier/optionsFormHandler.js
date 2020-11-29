@@ -16,7 +16,7 @@ form.addEventListener("submit", function(event) {
       'choice': entry[1],
     });
     if (entry[0] === 'activate') {
-      output += '"activate method" = ';
+      output += 'is set to ';
       if (entry[1] === 'onConnect') {
         output += '"Activate when first page is loaded"'
       } else {
@@ -25,6 +25,7 @@ form.addEventListener("submit", function(event) {
       chrome.storage.local.set({activate: entry[1]});
     }
   }
-  log.innerText = output+" is saved";
+  log.innerText = output;
+  // log.innerText = output+" is saved";
   event.preventDefault();
 }, false);
