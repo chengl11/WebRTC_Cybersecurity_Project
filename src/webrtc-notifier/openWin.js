@@ -1,6 +1,6 @@
 
 function openWin(data) {
-    console.log("data:", data);
+    // console.log("data:", data);
     var screenAvailWidth = window.screen.availWidth;
     var screenAvailHeight = window.screen.availHeight;
     var iHeight = 400;
@@ -13,6 +13,7 @@ function openWin(data) {
 
     // chrome.tabs.create({
     //     url: chrome.extension.getURL('dialog.html'),
+    //     // url: 'chrome://webrtc-internals/',
     //     active: false
     // }, function(tab) {
     //     // After the tab has been created, open a window to inject the tab
