@@ -7,6 +7,8 @@ function closeWin() {
     window.close();
 }
 
+console.log("url: ", cur_url)
+
 // function changePosition() {
 //     var screenAvailWidth = window.screen.availWidth;
 //     var screenAvailHeight = window.screen.availHeight;
