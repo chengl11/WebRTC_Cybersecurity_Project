@@ -10,11 +10,12 @@
       <div class="card-content" style="margin-left: 40px;">
         <h4>General Settings</h4>
         <form>
+          <!-- activate method -->
           <p style="font-size: medium">Please select your preferred activate method:</p>
           <p>
             <label for="onConnect">
               <input class="with-gap" id="onConnect" name="activate" type="radio" value="onConnect"/>
-              <span class="black-text">Activate when first page is loaded</span>
+              <span class="black-text">Activate automatically</span>
             </label>
           </p>
           <p>
@@ -23,34 +24,16 @@
               <span class="black-text">Activate when clicked</span>
             </label>
           </p>
-          
+
           <div style="margin-top: 36px;">
             <button class="btn waves-effect waves-light" type="submit">Save Settings</button>
           </div>
         </form>
-        <pre id="log">
+        <pre id="log" style="font-size: medium;">
           <!-- add info about this save -->
         </pre>
       </div>
     </div>
     <script src="optionsFormHandler.js"></script>
   </body>
-  
 </html>
-
-      <!-- <p style="font-size: medium">Please select your preferred tab style:</p>
-      <p>
-        <label>
-          <input class="with-gap" id="pinned" name="pin" type="radio" value="1" checked/>
-          <span>Pinned</span>
-        </label>
-      </p>
-      <p>
-        <label>
-          <input class="with-gap" id="Unpinned"name="pin" type="radio" value="2" />
-          <span>Unpinned</span>
-        </label>
-      </p>
-      <div>
-        <button type="submit">Save Settings</button>
-      </div> -->

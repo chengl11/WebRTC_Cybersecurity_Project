@@ -256,6 +256,44 @@ var inject = '('+function() {
   }
 }+')();';
 
+// var inject1 = '('+function() {
+//   window.RTCPeerConnection = undefined;
+//   window.getUserMedia = undefined;
+//   window.RTCDataChannel = undefined;
+//   console.log("blocking webrtc for this site")
+// }+')();';
+
+
+chrome.storage.local.get(['webrtcblocklist'], data => {
+  url_hostname = new URL(document.URL).hostname;
+  if (data['webrtcblocklist'] && data['webrtcblocklist'].some !== undefined &&
+    data['webrtcblocklist'].some(ele=>ele===url_hostname)) {
+      changeWebRTC();
+  }
+});
+function changeWebRTC() {
+  console.log("Trying to block WebRTC for this site");
+  var script = document.getElementById("webrtc-control");
+  if (script) script.parentNode.removeChild(script);
+  try {
+    var webrtc = '(' + function () {
+      if (typeof navigator.getUserMedia !== "undefined") navigator.getUserMedia = undefined;
+      if (typeof window.MediaStreamTrack !== "undefined") window.MediaStreamTrack = undefined;
+      if (typeof window.RTCPeerConnection !== "undefined") window.RTCPeerConnection = undefined;
+      if (typeof navigator.webkitGetUserMedia !== "undefined") navigator.webkitGetUserMedia = undefined;
+      if (typeof window.RTCSessionDescription !== "undefined") window.RTCSessionDescription = undefined;
+      if (typeof window.webkitMediaStreamTrack !== "undefined") window.webkitMediaStreamTrack = undefined;
+      if (typeof window.webkitRTCPeerConnection !== "undefined") window.webkitRTCPeerConnection = undefined;
+      if (typeof window.webkitRTCSessionDescription !== "undefined") window.webkitRTCSessionDescription = undefined;
+    } + ')();';
+    var script = document.createElement('script');
+    script.setAttribute("id", "webrtc-control");
+    script.textContent = webrtc;
+    var head = document.head || document.documentElement;
+    if (head) head.appendChild(script);
+  }
+  catch (e) {}
+};
 document.addEventListener('DOMContentLoaded', function() {
     var script = document.createElement('script');
     script.textContent = inject;
@@ -270,5 +308,9 @@ var channel = browser.runtime.connect();
 window.addEventListener('message', function (event) {
     if (typeof(event.data) === 'string') return;
     if (typeof event.data === 'undefined' || event.data[0] !== 'WebRTCExternals') return;
-    channel.postMessage(event.data);
+    try {
+      channel.postMessage(event.data);
+    } catch (e) {
+    }
+      
 });

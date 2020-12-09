@@ -1,18 +1,50 @@
-# WebRTC_Cybersecurity_Project
-**Author Name:** Lin Cheng, Wenqiang Yang\
-**Project Name:** WebRTC & Cybersecurity Project
+# WebRTC Notifier
 
-### Description (Continuously update)
+**Author Name:** [Lin Cheng](https://github.com/chengl11), [Wenqiang Yang](https://github.com/wq-yang)
 
-This project is to develop a Google Extension call "WebRTC Notifier". When a user opens a new website, if the site is using WebRTC, a window will pop up to indicate that the user is currently using WebRTC. Users can choose to ban WebRTC from the site or to quit the site.
+**Product Name:** WebRTC Notifier
+
+Course project for EC601: Product Design in Electrical and Computer Engineering.
+
+## Description
+
+WebRTC Notifier is a Chrome Extension. When a user opens a new website, if the site is using WebRTC, a window will pop up to indicate that the user is currently using WebRTC. Users can choose to ban WebRTC from the site or continue.
+
+## Why You Might Need WebRTC Notifier
+
+- Chrome does not notify users of the usage of WebRTC, except for asking for microphone / camera permission. But users have the right to know.
+
+- WebRTC may be abused. It might:
+  - Leak your public IP address behind VPN;
+  - Leak your private IP address;
+  - Scan active ports and attack intranet;
+  - Result in network congestion.
+
+## Features
+
+- Notify users about the usage of WebRTC;
+- Display details about WebRTC like *chrome://webrtc-internals/*;
+- Block WebRTC for specific domain (new feature since 1.1.0);
+- Offer two ways to activate WebRTC Notifier.
+
+## Usage
+
+
+
+## Limitations
+
+
 
 ## Sprint 1
+
 For more infomation about our sprint 1, please visit https://github.com/chengl11/WebRTC_Cybersecurity_Project/tree/master/sprint1
 
 ## Sprint 2
+
 For more infomation about our sprint 2, please visit https://github.com/chengl11/WebRTC_Cybersecurity_Project/tree/master/sprint2
 
 ## Technology Selection
+
 [Tech.md](https://github.com/chengl11/WebRTC_Cybersecurity_Project/blob/master/tech.md) includes technology selection part of our project. We analyzed different ways to detect the usage of WebRTC and the feasibility of these possible solutions. We worked on this both in sprint 2 and sprint 3.
 
 
