@@ -29,13 +29,19 @@ WebRTC Notifier is a Chrome Extension. When a user opens a new website, if the s
 
 ## Usage
 
+- Download webrtc-notifier.zip in [Releases](https://github.com/chengl11/WebRTC_Cybersecurity_Project/releases). Unzip it.
 
+- Open `Chrome - Extensions - Manage Extensions`. Click `Load unpacked` button and select the folder `webrtc-notifier` (what you got after unzipping webrtc-notifier.zip)
+
+- You can choose a way to activate this extension, and enjoy it.
 
 ## Limitations
 
+- Once blocking WebRTC for some page, it will block WebRTC for that page forever(as long as this extension is running in user's Chrome).
 
+  will add a "blocklist" in Options page in later versions, so users choose to start/stop blocking WebRTC for a certain domain.
 
-
+- If a web page is only calling `getUserMedia` method of WebRTC, we can detect it but cannot block WebRTC usage, unless it uses other WebRTC components later.
 
 ## Technology Selection
 
