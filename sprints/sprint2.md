@@ -12,7 +12,7 @@ This is a description for EC601 WebRTC Cybersecurity Project Sprint 02. The expe
 
 ## 2. Architecture
 
-![Image of architecture](https://github.com/chengl11/WebRTC_Cybersecurity_Project/blob/master/sprint2/images/Architecture.png)
+<img src="img/architecture.png" alt="Architecture"/>
 
 The basic structure of our product can be divided into four parts: the user behavior part, the code part, the Google WebRTC-internals part, and the "WebRTC Notifier" plug-in part.
 
@@ -36,7 +36,7 @@ The interface part(or UI part) is the design part of the entire plug-in interfac
 
 ## 3. Functional Demonstration of Major User Story
 
-![Image of architecture](https://github.com/chengl11/WebRTC_Cybersecurity_Project/blob/master/sprint2/images/User-story.png)
+<img src="img/User-story.png" alt="user story"/>
 
 A very simple user story might happen when using Google Hangouts. When the user wants to use the voice or video calls with others in the Google Hangouts, our product will first send the URL to Google's WebRTC-internals website, if the monitoring system detects that the current url is using WebRTC, all the results from the monitoring system will be collected and passed to our application, then the user will see a popup window that shows “The current website will use your WebRTC data.” At the end, the user can choose to continue the video chat or exit the current site.
 
@@ -73,7 +73,7 @@ From the previous study, we already knew that there is a Chrome built-in tool, c
 
 Webrtc-internals page changes in real time. When WebRTC starts to run, it presents statistics immediately, and vice versa. So if we can interact with webrtc-internals, and get information from it, we can know if some website runs WebRTC. We didn't find direct access to webrtc-internals, so we considered about simulating visiting it in the background and monitoring its change. One direct change is its UI change, some HTML elements was appended and removed when WebRTC starts and terminates.
 
-![UI Change](https://github.com/chengl11/WebRTC_Cybersecurity_Project/blob/master/sprint2/images/UI-change.png)
+<img src="img/UI-change.png" alt="UI Change"/>
 
 We found another Chrome extension, [Distill](https://distill.io/), which can monitor HTML elements changes. But Distill does not support monitoring Chrome built-in web pages, because it runs in the cloud. We will verify if we can monitor webrtc-internals in some way, locally, in the further research.
 

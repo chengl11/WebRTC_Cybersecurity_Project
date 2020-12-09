@@ -31,7 +31,7 @@ From the previous study, we already knew that there is a Chrome built-in tool, c
 
 Webrtc-internals page changes in real time. When WebRTC starts to run, it presents statistics immediately, and vice versa. So if we can interact with webrtc-internals, and get information from it, we can know if some website runs WebRTC. We didn't find direct access to webrtc-internals, so we considered about simulating visiting it in the background and monitoring its change. One direct change is its UI change, some HTML elements was appended and removed when WebRTC starts and terminates.
 
-![UI Change](https://github.com/chengl11/WebRTC_Cybersecurity_Project/blob/master/sprint2/images/UI-change.png)
+<img src="img/ui-change.png" alt="ui change"/>
 
 We found another Chrome extension, [Distill](https://distill.io/), which can monitor HTML elements changes. But Distill does not support monitoring Chrome built-in web pages, because it runs in the cloud. We will verify if we can monitor webrtc-internals in some way, locally, in the further research.
 
@@ -63,7 +63,7 @@ A types.BrowserSetting object whose underlying value is a string. This setting a
 * disable_non_proxied_udp
 * proxy_only (only connections using TURN on a TCP connection through a proxy are allowed)
 
-![Image of rtciphandlingpolicy](https://github.com/chengl11/WebRTC_Cybersecurity_Project/blob/master/img/rtciphandlingpolicy.png)
+<img src="img/rtciphandlingpolicy.png" alt="rtciphandlingpolicy"/>
 
 ### 4.2 APIs About Network Traffic
 
@@ -81,7 +81,7 @@ We used the Chrome DevTools network to monitor it, and found that the HTTP reque
 
 This solution is inspired by the "WebRTC Control" extension. when users open Chrome, all the WebRTC components in the browser will be disabled. When a site wants to use one of the WebRTC components, the console should report an error. Then, our product will capture these errors and analyze the results. Therefore, we can build our products around these errors.
 
-![Image of change-rtc-func](https://github.com/chengl11/WebRTC_Cybersecurity_Project/blob/master/img/change-rtc-func.png)
+<img src="img/change-rtc-func.png" alt="change rtc func"/>
 
 For example, when opening https://ip.voidsec.com with WebRTC Control, we got the error message in the console. When we catch error messages like this, we know that this website runs WebRTC.
 
@@ -125,7 +125,7 @@ Running the local test script, it automatically opens a browser, and visits thos
 
 In the server side, we did some modifications to run headless Chrome as the server does not support GUI. It can also speed up the process.
 
-<img src="https://github.com/chengl11/WebRTC_Cybersecurity_Project/blob/master/img/server_test_selenium.png" alt="server_test_selenium" style="zoom:40%"/>
+<img src="img/server_test_selenium.png" alt="server_test_selenium" style="zoom:40%"/>
 
 Inspite of advantages like invisible detection, working with a remote server also have some disadvantages.
 

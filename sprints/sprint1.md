@@ -96,7 +96,7 @@ With React, we can write separate components with props to form a complex applic
 We followed the instructions of A GitHub repository, Chrome Extension Webpack Boilerplate, and finished the setup of environment. Fig. 1 shows that the demo extension functions well.
 
 <div align="center">
-	<img src="demo.gif" alt="demo"/>
+	<img src="img/demo.gif" alt="demo"/>
   <div>
     Fig. 1 demo
   </div>
