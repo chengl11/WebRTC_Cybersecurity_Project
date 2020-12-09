@@ -24,7 +24,7 @@ WebRTC Notifier is a Chrome Extension. When a user opens a new website, if the s
 
 - Notify users about the usage of WebRTC;
 - Display details about WebRTC like *chrome://webrtc-internals/*;
-- Block WebRTC for specific domain (new feature since 1.1.0);
+- Block WebRTC for specific domain (new feature since 1.2.0);
 - Offer two ways to activate WebRTC Notifier.
 
 ## Usage
