@@ -20,3 +20,11 @@ div.button-content {
     justify-content: center;
     align-items: center;
 }
+#continue-button {
+    margin-top: 20px;
+    margin-right: 16px;
+}
+#block-button {
+    margin-top: 20px;
+    margin-left: 16px;
+}
