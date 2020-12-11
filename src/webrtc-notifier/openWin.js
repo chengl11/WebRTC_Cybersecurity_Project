@@ -1,6 +1,11 @@
 
+var textContent = document.getElementsByClassName("text-content");
+
+var cur_url = "";
 function openWin(data) {
     // console.log("data:", data);
+    cur_url = data;
+
     var screenAvailWidth = window.screen.availWidth;
     var screenAvailHeight = window.screen.availHeight;
     var iHeight = 400;
@@ -25,3 +30,5 @@ function openWin(data) {
     //     });
     // });
 }
+// var cur_url = "<p>" + cur_url + " is using WebRTC!</p>";
+// textContent.append = cur_url;

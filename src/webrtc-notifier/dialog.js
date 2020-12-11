@@ -7,6 +7,7 @@ function closeWin() {
     window.close();
 }
 
+
 // function changePosition() {
 //     var screenAvailWidth = window.screen.availWidth;
 //     var screenAvailHeight = window.screen.availHeight;
