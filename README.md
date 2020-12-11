@@ -1,19 +1,40 @@
-# WebRTC_Cybersecurity_Project
-**Author Name:** Lin Cheng, Wenqiang Yang\
-**Project Name:** WebRTC & Cybersecurity Project
+WebRTC Notifier
+Author Name: Lin Cheng, Wenqiang Yang
 
-### Description (Continuously update)
+Product Name: WebRTC Notifier
 
-This project is to develop a Google Extension call "WebRTC Notifier". When a user opens a new website, if the site is using WebRTC, a window will pop up to indicate that the user is currently using WebRTC. Users can choose to ban WebRTC from the site or to quit the site.
+Course project for EC601: Product Design in Electrical and Computer Engineering.
 
-## Sprint 1
-For more infomation about our sprint 1, please visit https://github.com/chengl11/WebRTC_Cybersecurity_Project/tree/master/sprint1
+Description
+WebRTC Notifier is a Chrome Extension. When a user opens a new website, if the site is using WebRTC, a window will pop up to indicate that the user is currently using WebRTC. Users can choose to ban WebRTC from the site or continue.
 
-## Sprint 2
-For more infomation about our sprint 2, please visit https://github.com/chengl11/WebRTC_Cybersecurity_Project/tree/master/sprint2
+Why You Might Need WebRTC Notifier
+Chrome does not notify users of the usage of WebRTC, except for asking for microphone / camera permission. But users have the right to know.
 
-## Technology Selection
-[Tech.md](https://github.com/chengl11/WebRTC_Cybersecurity_Project/blob/master/tech.md) includes technology selection part of our project. We analyzed different ways to detect the usage of WebRTC and the feasibility of these possible solutions. We worked on this both in sprint 2 and sprint 3.
+WebRTC may be abused. It might:
 
+Leak your public IP address behind VPN;
+Leak your private IP address;
+Scan active ports and attack intranet;
+Result in network congestion.
+Features
+Notify users about the usage of WebRTC;
+Display details about WebRTC like chrome://webrtc-internals/;
+Block WebRTC for specific domain (new feature since 1.1.0);
+Offer two ways to activate WebRTC Notifier.
+Usage
+Download webrtc-notifier.zip in Releases. Unzip it.
 
+Open Chrome - Extensions - Manage Extensions. Click Load unpacked button and select the folder webrtc-notifier (what you got after unzipping webrtc-notifier.zip)
 
+You can choose a way to activate this extension, and enjoy it.
+
+Limitations
+Once blocking WebRTC for some page, it will block WebRTC for that page forever(as long as this extension is running in user's Chrome).
+
+will add a "blocklist" in Options page in later versions, so users choose to start/stop blocking WebRTC for a certain domain.
+
+If a web page is only calling getUserMedia method of WebRTC, we can detect it but cannot block WebRTC usage, unless it uses other WebRTC components later.
+
+Technology Selection
+includes technology selection part of our project. We analyzed different ways to detect the usage of WebRTC and the feasibility of these possible solutions. We worked on this both in sprint 2 and sprint 3.
